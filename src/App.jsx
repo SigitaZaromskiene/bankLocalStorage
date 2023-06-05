@@ -1,23 +1,41 @@
+import "./App.scss";
+import Form from "./Components/Form";
+import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { read, create } from "./Components/localStorage";
+import List from "./Components/List";
 
-import './App.scss';
+const KEY = "LocalStorage data";
 
 function App() {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [personDetails, setPersonDetails] = useState(null);
+  const [personList, setPersonList] = useState(null);
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+
+  useEffect(() => {
+    setPersonList(read(KEY));
+  }, [lastUpdate]);
+
+  useEffect(() => {
+    if (personDetails === null) {
+      return;
+    }
+    create(KEY, personDetails);
+    setLastUpdate(Date.now());
+  }, [personDetails]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Form
+        name={name}
+        setName={setName}
+        setSurname={setSurname}
+        surname={surname}
+        setPersonDetails={setPersonDetails}
+      ></Form>
+      <List personList={personList}></List>
     </div>
   );
 }
