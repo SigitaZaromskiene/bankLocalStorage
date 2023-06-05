@@ -3,14 +3,14 @@ function List({ personList }) {
     return "LOADING....";
   }
   return (
-    <>
+    <div className="accounts-container">
       {personList.map((li) => (
         <div className="list-container">
           <div>{li.name}</div>
           <div>{li.surname}</div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
