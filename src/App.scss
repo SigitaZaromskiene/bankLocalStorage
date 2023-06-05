@@ -9,6 +9,16 @@ $buttonColor: yellow;
   align-items: center;
 }
 
+%message {
+  font-size: 24px;
+  border-radius: $borderRadius;
+  background-color: $primaryBlue;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+}
+
 @mixin displayFlex($direction, $top) {
   display: flex;
   align-items: $top;
@@ -19,10 +29,12 @@ $buttonColor: yellow;
   @include displayFlex(column, center);
   background-color: $background;
   min-height: 100vh;
+  position: relative;
 
   .accounts-container {
     @extend %simpleDisplay;
     gap: 50px;
+    flex-wrap: wrap;
 
     .list-container {
       @include displayFlex(column, flex-start);
@@ -83,4 +95,15 @@ $buttonColor: yellow;
   &:hover {
     background-color: white;
   }
+}
+
+.message {
+  @extend %message;
+}
+
+.deleteModal {
+  padding: 5px;
+  height: 100px;
+  width: 100px;
+  background-color: red;
 }
