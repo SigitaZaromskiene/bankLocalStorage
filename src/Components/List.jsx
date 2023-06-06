@@ -1,3 +1,4 @@
+import AccMoney from "./AccMoney";
 import DeleteBtn from "./DeleteBtn";
 import DeleteModal from "./DeleteModal";
 import EditButton from "./EditButton";
@@ -11,7 +12,6 @@ function List({
   setEditData,
   setEditModal,
   editModal,
-  setPersonDetails,
 }) {
   if (personList === null) {
     return "LOADING....";
@@ -58,6 +58,7 @@ function List({
               setEditModal={setEditModal}
             />
           ) : null}
+          <AccMoney></AccMoney>
         </div>
       ))}
     </div>

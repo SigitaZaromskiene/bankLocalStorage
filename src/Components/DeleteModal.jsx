@@ -12,6 +12,7 @@ const DeleteModal = ({ setDeleteModal, setDelete, li }) => {
             justifyContent: "center",
             gap: "20px",
             fontSize: "24px",
+            cursor: "pointer",
           }}
         >
           <FontAwesomeIcon icon={faCheck} onClick={() => setDelete(li)} />

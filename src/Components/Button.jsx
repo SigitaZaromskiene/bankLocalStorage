@@ -3,6 +3,7 @@ function Button({ name, surname, setPersonDetails, setName, setSurname }) {
     setPersonDetails({
       name: name,
       surname: surname,
+      amount: 0,
     });
     setName("");
     setSurname("");

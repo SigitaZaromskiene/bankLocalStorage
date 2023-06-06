@@ -2,6 +2,7 @@ $primaryBlue: rgb(42, 42, 113);
 $background: rgb(142, 142, 190);
 $borderRadius: 5px;
 $buttonColor: yellow;
+$buttonColorSmall: rgb(154, 154, 64);
 
 %simpleDisplay {
   display: flex;
@@ -44,8 +45,24 @@ $buttonColor: yellow;
       width: 350px;
       padding: 10px;
       border-radius: $borderRadius;
-
       position: relative;
+
+      .money-container {
+        @include displayFlex(row, center);
+
+        margin-top: 20px;
+        input {
+          height: 30px;
+        }
+        button {
+          height: 40px;
+          width: 70px;
+          border-radius: $borderRadius;
+          background-color: $buttonColorSmall;
+          border: 1px solid black;
+          padding: 5px;
+        }
+      }
     }
   }
 
@@ -134,4 +151,8 @@ $buttonColor: yellow;
   flex-direction: column;
   gap: 20px;
   margin-top: 25px;
+}
+
+p {
+  font-size: 24px;
 }
