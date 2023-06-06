@@ -20,6 +20,9 @@ function App() {
   const [editData, setEditData] = useState(null);
   const [editModal, setEditModal] = useState(null);
 
+  const [inputAmount, setInputAmount] = useState(0);
+  const [totalSum, setTotalSum] = useState(0);
+
   const msg = (text) => {
     setMessage((m) => [...(m ?? []), { text, id: uuidv4 }]);
   };
@@ -63,6 +66,8 @@ function App() {
         setSurname={setSurname}
         surname={surname}
         setPersonDetails={setPersonDetails}
+        totalSum={totalSum}
+        setPersonList={setPersonList}
       ></Form>
       <List
         personList={personList}
@@ -73,6 +78,10 @@ function App() {
         setEditModal={setEditModal}
         editModal={editModal}
         setPersonDetails={setPersonDetails}
+        setInputAmount={setInputAmount}
+        setTotalSum={setTotalSum}
+        inputAmount={inputAmount}
+        totalSum={totalSum}
       ></List>
       {message ? <Message message={message}></Message> : null}
     </div>

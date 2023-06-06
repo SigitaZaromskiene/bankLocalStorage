@@ -100,12 +100,13 @@ $buttonColorSmall: rgb(154, 154, 64);
 
 .deleteModal {
   padding: 5px;
-  height: 80px;
-  width: 100px;
+  height: 140px;
+  width: 160px;
   background-color: red;
   position: absolute;
   top: 20%;
-  left: 2%;
+  right: 30%;
+  text-align: center;
 
   .icons {
     height: 10px;

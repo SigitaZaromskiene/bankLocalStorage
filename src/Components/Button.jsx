@@ -1,9 +1,21 @@
-function Button({ name, surname, setPersonDetails, setName, setSurname }) {
+import { v4 as uuidv4 } from "uuid";
+
+function Button({
+  name,
+  surname,
+  setPersonList,
+  personDetails,
+  setPersonDetails,
+  setName,
+  setSurname,
+  totalSum,
+}) {
   const nameSurnameHandler = () => {
     setPersonDetails({
       name: name,
       surname: surname,
-      amount: 0,
+      total: totalSum,
+      id: uuidv4(),
     });
     setName("");
     setSurname("");

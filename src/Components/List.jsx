@@ -12,10 +12,17 @@ function List({
   setEditData,
   setEditModal,
   editModal,
+  setTotalSum,
+  inputAmount,
+  setInputAmount,
+  totalSum,
+  setPersonDetails,
+  setPersonList,
 }) {
   if (personList === null) {
     return "LOADING....";
   }
+
   return (
     <div className="accounts-container">
       {personList.map((li) => (
@@ -31,6 +38,7 @@ function List({
           >
             <div>{li.name}</div>
             <div>{li.surname}</div>
+            <div>{li.totalSum}</div>
           </div>
           <div className="btn-list">
             <DeleteBtn
@@ -58,7 +66,16 @@ function List({
               setEditModal={setEditModal}
             />
           ) : null}
-          <AccMoney></AccMoney>
+
+          <AccMoney
+            setTotalSum={setTotalSum}
+            inputAmount={inputAmount}
+            setInputAmount={setInputAmount}
+            li={li}
+            totalSum={totalSum}
+            setPersonDetails={setPersonDetails}
+            personList={personList}
+          ></AccMoney>
         </div>
       ))}
     </div>

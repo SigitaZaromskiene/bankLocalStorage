@@ -1,6 +1,14 @@
 import Button from "./Button";
 
-function Form({ name, surname, setName, setSurname, setPersonDetails }) {
+function Form({
+  name,
+  surname,
+  setName,
+  setSurname,
+  setPersonDetails,
+  setPersonList,
+  totalSum,
+}) {
   return (
     <div className="form-container">
       <h3>Please enter your details</h3>
@@ -23,6 +31,8 @@ function Form({ name, surname, setName, setSurname, setPersonDetails }) {
         setPersonDetails={setPersonDetails}
         setName={setName}
         setSurname={setSurname}
+        totalSum={totalSum}
+        setPersonList={setPersonList}
       ></Button>
     </div>
   );
