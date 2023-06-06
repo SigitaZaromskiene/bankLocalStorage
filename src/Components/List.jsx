@@ -8,7 +8,7 @@ function List({
   setDelete,
   setDeleteModal,
   deleteModal,
-  setEdit,
+  setEditData,
   setEditModal,
   editModal,
   setPersonDetails,
@@ -39,7 +39,7 @@ function List({
               setDeleteModal={setDeleteModal}
             />
             <EditButton
-              setEdit={setEdit}
+              setEditData={setEditData}
               setEditModal={setEditModal}
               li={li}
             ></EditButton>
@@ -51,10 +51,11 @@ function List({
               li={li}
             ></DeleteModal>
           ) : null}
-          {editModal ? (
+          {editModal && editModal.id === li.id ? (
             <EditModal
               editModal={editModal}
-              setPersonDetails={setPersonDetails}
+              setEditData={setEditData}
+              setEditModal={setEditModal}
             />
           ) : null}
         </div>

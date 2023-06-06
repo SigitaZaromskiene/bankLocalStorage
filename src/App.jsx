@@ -2,7 +2,7 @@ import "./App.scss";
 import Form from "./Components/Form";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { read, create, destroy } from "./Components/localStorage";
+import { read, create, destroy, edit } from "./Components/localStorage";
 import List from "./Components/List";
 import Message from "./Components/Message";
 
@@ -17,7 +17,7 @@ function App() {
   const [message, setMessage] = useState(null);
   const [deleteLi, setDeleteLi] = useState(null);
   const [deleteModal, setDeleteModal] = useState(null);
-  const [edit, setEdit] = useState(null);
+  const [editData, setEditData] = useState(null);
   const [editModal, setEditModal] = useState(null);
 
   const msg = (text) => {
@@ -46,6 +46,15 @@ function App() {
     msg("Bill was deleted");
   }, [deleteLi]);
 
+  useEffect(() => {
+    if (editData === null) {
+      return;
+    }
+    edit(KEY, editData, editData.id);
+    msg("Bill was edited");
+    setLastUpdate(Date.now());
+  }, [editData]);
+
   return (
     <div className="container">
       <Form
@@ -60,10 +69,10 @@ function App() {
         setDeleteModal={setDeleteModal}
         setDelete={setDeleteLi}
         deleteModal={deleteModal}
-        setEdit={setEdit}
+        setEditData={setEditData}
         setEditModal={setEditModal}
         editModal={editModal}
-        personDetails={personDetails}
+        setPersonDetails={setPersonDetails}
       ></List>
       {message ? <Message message={message}></Message> : null}
     </div>
