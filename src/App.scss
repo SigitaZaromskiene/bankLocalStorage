@@ -37,14 +37,15 @@ $buttonColor: yellow;
     flex-wrap: wrap;
 
     .list-container {
-      @include displayFlex(column, flex-start);
+      @include displayFlex(column, center);
       border: 1px solid black;
       margin-top: 50px;
       height: 250px;
       width: 350px;
       padding: 10px;
       border-radius: $borderRadius;
-      justify-content: flex-start;
+
+      position: relative;
     }
   }
 
@@ -103,7 +104,20 @@ $buttonColor: yellow;
 
 .deleteModal {
   padding: 5px;
-  height: 100px;
+  height: 80px;
   width: 100px;
   background-color: red;
+  position: absolute;
+  top: 20%;
+  left: 2%;
+
+  .icons {
+    height: 10px;
+    width: 10px;
+  }
+}
+
+.btn-list {
+  @extend %simpleDisplay;
+  gap: 40px;
 }

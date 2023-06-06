@@ -1,7 +1,18 @@
 import DeleteBtn from "./DeleteBtn";
 import DeleteModal from "./DeleteModal";
+import EditButton from "./EditButton";
+import EditModal from "./EditModal";
 
-function List({ personList, setDelete, setDeleteModal, deleteModal }) {
+function List({
+  personList,
+  setDelete,
+  setDeleteModal,
+  deleteModal,
+  setEdit,
+  setEditModal,
+  editModal,
+  setPersonDetails,
+}) {
   if (personList === null) {
     return "LOADING....";
   }
@@ -21,13 +32,30 @@ function List({ personList, setDelete, setDeleteModal, deleteModal }) {
             <div>{li.name}</div>
             <div>{li.surname}</div>
           </div>
-          <DeleteBtn
-            li={li}
-            setDelete={setDelete}
-            setDeleteModal={setDeleteModal}
-          />
+          <div className="btn-list">
+            <DeleteBtn
+              li={li}
+              setDelete={setDelete}
+              setDeleteModal={setDeleteModal}
+            />
+            <EditButton
+              setEdit={setEdit}
+              setEditModal={setEditModal}
+              li={li}
+            ></EditButton>
+          </div>
           {deleteModal && deleteModal.id === li.id ? (
-            <DeleteModal></DeleteModal>
+            <DeleteModal
+              setDeleteModal={setDeleteModal}
+              setDelete={setDelete}
+              li={li}
+            ></DeleteModal>
+          ) : null}
+          {editModal ? (
+            <EditModal
+              editModal={editModal}
+              setPersonDetails={setPersonDetails}
+            />
           ) : null}
         </div>
       ))}
