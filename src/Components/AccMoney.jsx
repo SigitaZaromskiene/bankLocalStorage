@@ -30,6 +30,9 @@ function AccMoney({ li, setPersonList, personList, setEditData, editData }) {
       if (lis.id !== li.id) return lis;
 
       const minusSum = Number(li.total) - Number(inputAmount);
+      if (inputAmount > lis.total) {
+        return lis.total;
+      }
       lis.total = minusSum;
       return lis;
     });

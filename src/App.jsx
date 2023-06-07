@@ -24,6 +24,10 @@ function App() {
     setMessage((m) => [...(m ?? []), { text, id: uuidv4 }]);
   };
 
+  const sortHandler = () => {
+    setPersonList((li) => [...li].sort((a, b) => a.name.localeCompare(b.name)));
+  };
+
   useEffect(() => {
     setPersonList(read(KEY));
   }, [lastUpdate]);
@@ -78,6 +82,9 @@ function App() {
         editData={editData}
       ></List>
       {message ? <Message message={message}></Message> : null}
+      <button className="button" onClick={sortHandler}>
+        Sort
+      </button>
     </div>
   );
 }
