@@ -37,6 +37,7 @@ function App() {
       return;
     }
     create(KEY, personDetails);
+
     msg("New bill is created");
     setLastUpdate(Date.now());
   }, [personDetails]);
