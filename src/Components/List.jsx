@@ -26,9 +26,14 @@ function List({
     return "LOADING....";
   }
 
+  const sorted = [...personList].sort((a, b) =>
+    a.surname.localeCompare(b.surname)
+  );
+  console.log(sorted);
+
   return (
     <div className="accounts-container">
-      {personList.map((li) => (
+      {sorted.map((li) => (
         <div className="list-container">
           <div
             style={{
