@@ -9,12 +9,14 @@ function Button({
   setName,
   setSurname,
   totalSum,
+  inputAmount,
 }) {
   const nameSurnameHandler = () => {
     setPersonDetails({
       name: name,
       surname: surname,
-      total: totalSum,
+      total: 0,
+
       id: uuidv4(),
     });
     setName("");

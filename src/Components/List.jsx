@@ -18,6 +18,9 @@ function List({
   totalSum,
   setPersonDetails,
   setPersonList,
+  setEditSum,
+  editSum,
+  editData,
 }) {
   if (personList === null) {
     return "LOADING....";
@@ -38,7 +41,6 @@ function List({
           >
             <div>{li.name}</div>
             <div>{li.surname}</div>
-            <div>{li.totalSum}</div>
           </div>
           <div className="btn-list">
             <DeleteBtn
@@ -75,6 +77,12 @@ function List({
             totalSum={totalSum}
             setPersonDetails={setPersonDetails}
             personList={personList}
+            setPersonList={setPersonList}
+            setEditMoney={setEditModal}
+            setEditSum={setEditSum}
+            editSum={editSum}
+            setEditData={setEditData}
+            editData={editData}
           ></AccMoney>
         </div>
       ))}
